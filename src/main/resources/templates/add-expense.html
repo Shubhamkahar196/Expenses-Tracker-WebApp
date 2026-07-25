@@ -42,7 +42,21 @@
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <form th:action="@{/submitAdd}" th:object="${expense}" method="post">
-                    <div class="form-group">
+
+                      <div class="form-group">
+    <label for="expenseCategory"><h6>Expense Category :</h6></label>
+    <!-- category.id set karne se JPA automatic Category Entity bind kar lega -->
+    <select id="expenseCategory" class="form-select" th:field="*{category.id}" required style="width: 50%; display: inline-block; margin-left: 10px;">
+        <option value="" disabled selected>-- Select Category --</option>
+        <option th:each="cat : ${categories}" 
+                th:value="${cat.id}" 
+                th:text="${cat.name}">
+        </option>
+    </select>
+</div>
+
+                      <!--issue category old  -->
+                    <!-- <div class="form-group">
                         <!-- Dropdown List for Expense Categories -->
                         <label for="expenseCategory"><h6>Expense Category :</h6></label>
                         <select id="expenseCategory" name="expenseCategory" style="width: 32%; margin-left: 20px;" th:field="*{category}">
@@ -55,7 +69,7 @@
                             <option value="travel">Travel</option>
                             <option value="education">Education</option>
                         </select>
-                    </div>
+                    </div> -->
                     <br>
                     <div class="form-group">
                         <label for="amount"><h6>Amount</h6></label>
