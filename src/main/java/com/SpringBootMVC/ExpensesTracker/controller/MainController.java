@@ -39,22 +39,22 @@ public class MainController {
         return "landing-page";
     }
 
-    // @GetMapping("/showAdd")
-    // public String addExpense(Model model){
-    //     model.addAttribute("expense", new ExpenseDTO());
-    //     return "add-expense";
-    // }
-
     @GetMapping("/showAdd")
-public String addExpense(Model model){
-    model.addAttribute("expense", new ExpenseDTO());
-    
-    // YEH LINE ADD KAREIN: Categories list fetching and adding to model
-    model.addAttribute("categoryList", categoryService.findAllCategories()); 
-    // (Note: Agar aapke CategoryService me method ka naam `findAll()` hai, toh `categoryService.findAll()` use karein)
+    public String addExpense(Model model){
+        model.addAttribute("expense", new ExpenseDTO());
+        return "add-expense";
+    }
 
-    return "add-expense";
-}
+//     @GetMapping("/showAdd")
+// public String addExpense(Model model){
+//     model.addAttribute("expense", new ExpenseDTO());
+    
+//     // YEH LINE ADD KAREIN: Categories list fetching and adding to model
+//     model.addAttribute("categoryList", categoryService.findAllCategories()); 
+//     // (Note: Agar aapke CategoryService me method ka naam `findAll()` hai, toh `categoryService.findAll()` use karein)
+
+//     return "add-expense";
+// }
 
     @PostMapping("/submitAdd")
     public String submitAdd(@ModelAttribute("expense") ExpenseDTO expenseDTO, HttpSession session){
