@@ -43,7 +43,7 @@ services:
       retries: 5
       start_period: 60s
     volumes:
-      - ./mysql-data:/var/lib/mysql
+      - /mysql-data:/var/lib/mysql
 
 networks:
   expense-nw:
