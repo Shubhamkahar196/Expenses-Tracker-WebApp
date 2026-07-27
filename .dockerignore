@@ -1,0 +1,6 @@
+mysql-data/
+.git/
+target/
+.gitignore
+Dockerfile
+docker-compose.yml
